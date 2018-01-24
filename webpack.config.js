@@ -21,7 +21,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, "www"),
-		port: 9000,
+		port: 8086,
 		compress: true
 	},
 	module: {
@@ -48,10 +48,13 @@ module.exports = {
 		        })
 				
 			},
-			{
-				test: /\.(png|jpe?g)$/,
-				use: 'file-loader'
-			} 
+		    {
+		        test: /\.(woff|woff2|eot|ttf|svg)$/,
+			    exclude: /node_modules/,
+			    use: {
+			        loader: 'url-loader?limit=10000&name=/fonts/[name].[ext]'
+			      }
+		    }
 		]
 	},
 	plugins: [
@@ -64,7 +67,8 @@ module.exports = {
 	resolve: {
 		alias: {
 			"Components": path.resolve(__dirname, "src", "js", "Components"),
-			"Styles": path.resolve(__dirname, "src", "scss")
-		} 
+			"Styles": path.resolve(__dirname, "src", "scss"),
+			"Fonts": path.resolve(__dirname, "src", "Fonts")
+		}   
 	}
 }
