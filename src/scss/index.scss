@@ -1,0 +1,17 @@
+@import "./fonts.scss";
+
+
+$backgroundColor: #101010;
+$primaryTextColor: #8e8e8e;
+$pimaryElementColor: #8e8e8e;
+$fontRegular: "Ubuntu";
+$fontBold: "Ubuntu-Bold";
+$fontLight: "Ubuntu-Light";
+
+body
+{
+	background-color: $backgroundColor;
+	color: $primaryTextColor;
+	display: flex;
+	font-family: $fontBold; 
+}

@@ -1,0 +1,16 @@
+@font-face { 
+	font-family: "Ubuntu";
+	src: url("~Fonts/Ubuntu/Ubuntu-Regular.ttf") format('truetype');
+ }
+ @font-face { 
+	font-family: "Ubuntu-Bold";
+	src: url("~Fonts/Ubuntu/Ubuntu-Bold.ttf") format('truetype');
+
+ }
+ @font-face { 
+	font-family: "Ubuntu-Light";
+	src: url("~Fonts/Ubuntu/Ubuntu-Light.ttf") format('truetype');
+ }
+@import "./font-awesome-scss/fontawesome.scss";
+@import "./font-awesome-scss/fa-solid.scss";
+  
