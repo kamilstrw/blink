@@ -7,15 +7,15 @@ export default class Eye extends React.Component
 		super();
 		this.state = 
 		{
-			x: "30%",
-			y: "30%"
+			x: "15%",
+			y: "15%"
 		}
 		this.lookAt = this.lookAt.bind(this);
 		this.getEyeCenter = this.getEyeCenter.bind(this); 
 	}
 	componentDidMount()
 	{
-		document.body.addEventListener('mousemove', this.lookAt)
+		document.body.addEventListener('mousemove', this.lookAt);
 	}
 	lookAt(event)
 	{
@@ -27,8 +27,8 @@ export default class Eye extends React.Component
 		let cosY = vector.y/vectorModule;
 
 		let newPos = {
-			x: node.width * 0.3 + (vectorModule > (node.width*0.3) ? (node.width*0.3) * cosX : vectorModule * cosX),
-			y: node.height * 0.3 + (vectorModule > (node.height*0.3) ? (node.height*0.3) * cosY : vectorModule * cosY)
+			x:  node.width*0.15 + (vectorModule < node.width*0.15 ? vectorModule*cosX : node.width*0.15 * cosX),
+			y:  node.height*0.15 + (vectorModule < node.height*0.15 ? vectorModule*cosY : node.height*0.15 * cosY),
 		}
 		this.setState(newPos);
 
@@ -46,7 +46,9 @@ export default class Eye extends React.Component
 		return(
 			<div className="eye">
 				<div ref="eyebase" className="eye-inside">
-					<div ref="pupil" style={{left: this.state.x, top: this.state.y}} className="eye-inside-pupil"></div>
+					<div ref="pupil" style={{left: this.state.x, top: this.state.y}} className="eye-inside-pupil">
+						<div className="eye-inside-pupil-small"></div>
+					</div>
 					<div className="eye-inside-bottomEyelid"></div>
 					<div className="eye-inside-topEyelid"></div>
 				</div> 

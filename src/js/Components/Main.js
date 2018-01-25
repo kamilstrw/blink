@@ -10,6 +10,7 @@ import Pages from 'Pages'
 	{
 	 return (
 		<main>
+		 <div className="navigation">Член</div>
 	     <Switch>
 	      <Route path='/' component={Pages.Home}/>
 	     </Switch>

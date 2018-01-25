@@ -1,17 +1,21 @@
 import React from 'react'
+import Page from 'Components/Page'
 
 
-export default class Home extends React.Component
+export default class Home extends Page
 {
 	constructor()
 	{
 		super();
+		this.state={
+			pageTitle: "Введение"
+		}
 	}
 
-	render()
+	renderPage()
 	{
 		return(
-			<div>This is landing</div>
+			<div>gdf</div>
 		)
 	}
 }

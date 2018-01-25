@@ -1,15 +1,7 @@
 @import "./fonts.scss";
 
 
-$backgroundColor: #262626;
-$primaryTextColor: #8e8e8e;
-$secondaryTextColor: #ff1763;
-$primaryElementColor: #8e8e8e;
-$secondaryElementColor: #ff1763;
-$primaryShadowColor: #000000;
-$fontRegular: "Ubuntu";
-$fontBold: "Ubuntu-Bold";
-$fontLight: "Ubuntu-Light";
+
 
 * {
 margin: 0;
@@ -21,12 +13,22 @@ body, div
 	-webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-body
+body.default
 {
+$backgroundColor: #262626;
+$primaryTextColor: #8e8e8e;
+$secondaryTextColor: #ff1763;
+$primaryElementColor: #8e8e8e;
+$secondaryElementColor: #ff1763;
+$primaryShadowColor: #000000;
+$fontRegular: "Ubuntu";
+$fontBold: "Ubuntu-Bold";
+$fontLight: "Ubuntu-Light";
+
 	background-color: $backgroundColor;
 	color: $primaryTextColor;
 	display: flex;
-	font-family: $fontBold;
+	font-family: $fontRegular;
 	margin: 0;
 	a
 	{
@@ -39,6 +41,7 @@ body
 	}
 	.head
 	{
+		font-family: $fontBold;
 		width: 100%;
 		height: 100px;
 		display: flex;
@@ -53,7 +56,7 @@ body
 			color: $secondaryTextColor;
 			font-size: 35px;
 			align-items: center;
-    		justify-content: center
+    		justify-content: flex-start;
 		}
 		&-eye
 		{
@@ -77,7 +80,7 @@ body
 			{
 				display: flex;
     			align-items: center;
-    			justify-content: space-around;
+    			justify-content: space-evenly;
 				&-avatar
 				{
 					border-radius: 50%;
@@ -88,13 +91,14 @@ body
 			&-github
 			{
 				display: flex;
-				justify-content: space-around;
+				justify-content: space-evenly;
 			}
 		}
 		
 	}
 	.eye
 	{
+		cursor: pointer;
 		width: 150px;
 		height: 150px;
 		border: 10px solid $secondaryElementColor;
@@ -114,13 +118,20 @@ body
 			&-pupil
 			{
 				display: flex;
-				justify-items: center;
+				justify-content: center;
 				align-items: center;
 				position: absolute;
-				height: 40%;
-				width: 40%; 
+				height: 70%;
+				width: 70%; 
 				background-color: $secondaryElementColor;
 				border-radius: 50%;
+				&-small
+				{
+					height: 75%;
+					width: 75%;
+					border-radius: 50%;
+					background-color: $backgroundColor;
+				}
 			}
 			&-topEyelid
 			{
@@ -131,7 +142,7 @@ body
    				left: -50%;
    				border-radius: 50%;
    				border-bottom: 2px solid $primaryShadowColor;
-   				animation: blinkTop 30s infinite;
+   				animation: blinkTop 10s infinite;
 			}
 			&-bottomEyelid
 			{
@@ -142,7 +153,7 @@ body
    				left: -50%;
    				bottom: -60%;
    				border-radius: 50%;
-   				animation: blinkBottom 30s infinite;
+   				animation: blinkBottom 10s infinite;
    				
 			}
 			@keyframes blinkTop
@@ -159,6 +170,25 @@ body
 				2% {bottom: -20%;}
 				100% {bottom: -20%;}
 			}
+		}
+	}
+	.navigation
+	{
+		width: 100%;
+		display: flex;
+		padding: 20px;
+	}
+	.Page
+	{
+		width: 100%;
+		height: auto;
+		padding: 20px;
+		&-head
+		{
+			border-bottom: 3px solid $secondaryElementColor;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			font-size: 25px;
 		}
 	}
 }

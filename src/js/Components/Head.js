@@ -10,7 +10,7 @@ export default class Head extends React.Component
 		return(
 			<div className="head">
 				<div className="head-title">
-					<p>REACT SKILLS SHOWCASE</p>
+					<p>BLINK</p>
 				</div>
 				<div className="head-eye">
 					<Eye/>
