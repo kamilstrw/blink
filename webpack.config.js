@@ -21,7 +21,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, "www"),
-		port: 8086,
+		port: 9001,
 		compress: true
 	},
 	module: {
@@ -67,6 +67,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			"Components": path.resolve(__dirname, "src", "js", "Components"),
+			"Pages": path.resolve(__dirname, "src", "js", "Pages"),
 			"Styles": path.resolve(__dirname, "src", "scss"),
 			"Fonts": path.resolve(__dirname, "src", "Fonts")
 		}   

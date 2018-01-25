@@ -1,17 +1,172 @@
 @import "./fonts.scss";
 
 
-$backgroundColor: #101010;
+$backgroundColor: #262626;
 $primaryTextColor: #8e8e8e;
-$pimaryElementColor: #8e8e8e;
+$secondaryTextColor: #ff1763;
+$primaryElementColor: #8e8e8e;
+$secondaryElementColor: #ff1763;
+$primaryShadowColor: #000000;
 $fontRegular: "Ubuntu";
 $fontBold: "Ubuntu-Bold";
 $fontLight: "Ubuntu-Light";
 
+* {
+margin: 0;
+padding: 0;
+}
+body, div
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 body
 {
 	background-color: $backgroundColor;
 	color: $primaryTextColor;
 	display: flex;
-	font-family: $fontBold; 
+	font-family: $fontBold;
+	margin: 0;
+	a
+	{
+		color: $primaryTextColor;
+		text-decoration: none;
+	}
+	#main
+	{
+		width: 100%; 
+	}
+	.head
+	{
+		width: 100%;
+		height: 100px;
+		display: flex;
+		flex-direction: row;
+		box-shadow: 0 0 10px $primaryShadowColor;
+		padding: 20px;
+		justify-content: space-between;
+		&-title
+		{
+			display: flex;
+			flex-basis: 20%;
+			color: $secondaryTextColor;
+			font-size: 35px;
+			align-items: center;
+    		justify-content: center
+		}
+		&-eye
+		{
+				display: flex;
+				justify-content: center;
+				height: 130px;
+				width: 300px;
+				justify-self: center; 
+		}
+		&-contacts
+		{
+			flex-direction: column;
+			display: flex;
+			flex-basis: 20%; 
+			justify-content: space-around;
+			a 
+			{
+				color: $secondaryTextColor;
+			}
+			&-google
+			{
+				display: flex;
+    			align-items: center;
+    			justify-content: space-around;
+				&-avatar
+				{
+					border-radius: 50%;
+					border: 2px solid $secondaryElementColor;
+					cursor: pointer;
+				}
+			}
+			&-github
+			{
+				display: flex;
+				justify-content: space-around;
+			}
+		}
+		
+	}
+	.eye
+	{
+		width: 150px;
+		height: 150px;
+		border: 10px solid $secondaryElementColor;
+		border-radius: 75% 15%;
+		transform: rotate(45deg); 
+		background-color: $backgroundColor;
+		box-shadow: 0 0 10px $primaryShadowColor;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		&-inside
+		{
+			height: 100%;
+			width: 100%;
+			transform: rotate(-45deg);
+			&-pupil
+			{
+				display: flex;
+				justify-items: center;
+				align-items: center;
+				position: absolute;
+				height: 40%;
+				width: 40%; 
+				background-color: $secondaryElementColor;
+				border-radius: 50%;
+				&-small
+				{
+					width: 50%;
+					height: 50%;
+					border-radius: 50%;
+					background-color: $primaryShadowColor;
+					box-shadow: 0 0 10px $primaryShadowColor;
+				}
+			}
+			&-topEyelid
+			{
+				height: 95%;
+   			    width: 200%;
+    			background-color: $secondaryElementColor;
+    			position: absolute;
+   				left: -50%;
+   				border-radius: 50%;
+   				border-bottom: 2px solid $primaryShadowColor;
+   				animation: blinkTop 30s infinite;
+			}
+			&-bottomEyelid
+			{
+				height: 20%;
+   			    width: 200%;
+    			background-color: $secondaryElementColor;
+    			position: absolute;
+   				left: -50%;
+   				bottom: -60%;
+   				border-radius: 50%;
+   				animation: blinkBottom 30s infinite;
+   				
+			}
+			@keyframes blinkTop
+			{
+				0% {top: -95%;}
+				1% {top: 0%;}
+				2% {top: -95%;}
+				100% {top: -95%;}
+			}
+			@keyframes blinkBottom
+			{
+				0% {bottom: -20%;}
+				1% {bottom: 0%;}
+				2% {bottom: -20%;}
+				100% {bottom: -20%;}
+			}
+		}
+	}
 }
