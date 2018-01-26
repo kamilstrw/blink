@@ -6,22 +6,21 @@ const path = require('path');
 const PRODUCTION = process.env.NODE_ENV === "production";
 
 const extractSass = new ExtractTextPlugin({
-    filename: "main.css",
-    disable: process.env.NODE_ENV === "development"
+    filename: "main.css"
 });
 
 module.exports = {
 	devtool: PRODUCTION ? false : "cheap-inline-module-source-map",
 	entry: './src/js/index.js',
 	output: {
-		path: path.resolve(__dirname, 'www'),
+		path: path.resolve(__dirname, 'assets'),
 		filename: 'bundle.js'
 	},
 	watch: true,
 	devServer:
 	{
-		contentBase: path.join(__dirname, "www"),
-		port: 8054,
+		contentBase: path.join(__dirname),
+		port: 9012,
 		compress: true
 	},
 	module: {
@@ -52,7 +51,7 @@ module.exports = {
 		        test: /\.(woff|woff2|eot|ttf|svg)$/,
 			    exclude: /node_modules/,
 			    use: {
-			        loader: 'url-loader?limit=10000&name=/fonts/[name].[ext]'
+			        loader: 'url-loader?limit=10000&name=../fonts/[name].[ext]'
 			      }
 		    }
 		]
@@ -60,7 +59,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 	      template: "./src/index.html",
-	      filename: "index.html"
+	      filename: "../index.html"
 	    }),
 	    extractSass
 	],
