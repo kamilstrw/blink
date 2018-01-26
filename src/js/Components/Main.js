@@ -10,9 +10,9 @@ import Pages from 'Pages'
 	{
 	 return (
 		<main>
-		 <div className="navigation">Член</div>
 	     <Switch>
-	      <Route path='/' component={Pages.Home}/>
+	      <Route exact path='/' component={Pages.Home}/>
+	      <Route path='/gallery' component={Pages.Gallery}/>
 	     </Switch>
 		</main>
 		)

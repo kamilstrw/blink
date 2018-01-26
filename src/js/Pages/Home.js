@@ -8,14 +8,14 @@ export default class Home extends Page
 	{
 		super();
 		this.state={
-			pageTitle: "Введение"
+			pageTitle: "Introduction"
 		}
 	}
 
 	renderPage()
 	{
 		return(
-			<div>gdf</div>
+			<div>sdfsaddsada</div>
 		)
 	}
 }

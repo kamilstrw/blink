@@ -19,7 +19,7 @@ export default class Eye extends React.Component
 	}
 	lookAt(event)
 	{
-		let node = this.refs.eyebase.getBoundingClientRect()
+		let node = this.refs.eyebase.getBoundingClientRect();
 		let center = this.getEyeCenter(node);
 		let vector = {x: event.clientX - center.x, y: event.clientY-center.y};
 		let vectorModule = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));

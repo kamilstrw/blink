@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from "Components/Navigation"
 
 export default class Page extends React.Component
 {
@@ -12,6 +13,7 @@ export default class Page extends React.Component
 			<div className="Page">
 				<div className="Page-head">
 					<h1>{this.state.pageTitle}</h1>
+					<Nav/>
 				</div>
 				{this.renderPage()}
 			</div>

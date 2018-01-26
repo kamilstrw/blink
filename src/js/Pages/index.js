@@ -1,5 +1,7 @@
-import Home from "./Home";
+import Home from "Pages/Home";
+import Gallery from "Pages/Gallery"
 
 export default  {
-	Home
+	Home,
+	Gallery
 }

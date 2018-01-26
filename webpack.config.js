@@ -19,7 +19,7 @@ module.exports = {
 	watch: true,
 	devServer:
 	{
-		contentBase: path.join(__dirname),
+		contentBase: path.join(__dirname, 'assets'),
 		port: 9012,
 		compress: true
 	},
@@ -51,7 +51,7 @@ module.exports = {
 		        test: /\.(woff|woff2|eot|ttf|svg)$/,
 			    exclude: /node_modules/,
 			    use: {
-			        loader: 'url-loader?limit=10000&name=../fonts/[name].[ext]'
+			        loader: 'url-loader?limit=10000&name=/fonts/[name].[ext]'
 			      }
 		    }
 		]
@@ -59,7 +59,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 	      template: "./src/index.html",
-	      filename: "../index.html"
+	      filename: "index.html"
 	    }),
 	    extractSass
 	],
