@@ -22,19 +22,20 @@ export default class DrawCanvas extends React.Component
 	}
 	draw(event)
 	{
+		console.log(event);
 		if (event.buttons === 1)
 		{
 			let x = event.clientX - this.state.ofsetX;
 			let y = event.clientY - this.state.ofsetY;
 			this.state.context.fillStyle = "black";
-			this.state.context.fillRect(x/2, y/2, 5, 5);			
+			this.state.context.fillRect(x/2-2, y/2-2, 5, 5);			
 		}
 	}
 	render()
 	{
 		return(
 			<div>
-				<canvas ref="canvas" className="DrawCanvas"></canvas>
+				<canvas ref="canvas" onClick={(e)=>this.draw(e)} className="DrawCanvas"></canvas>
 			</div>
 		)
 	}

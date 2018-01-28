@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "repository" :
-  { 
-    "type" : "git", 
-    "url" : "https://github.com/kamilstrw/blink.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamilstrw/blink.git"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -48,7 +47,8 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.7.2"
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   }
 }

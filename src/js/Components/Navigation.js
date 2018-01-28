@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 export default class Navigation extends React.Component
@@ -13,9 +13,9 @@ export default class Navigation extends React.Component
 	{
 		return(
 			<ul className="Navigation">
-				<li><Link to="/"><button>Home</button></Link></li>
-				<li><Link to="/gallery"><button>Gallery</button></Link></li>			
+				<li><NavLink to="/" activeClassName="active"><button>Home</button></NavLink></li>
+				<li><NavLink to="/gallery" activeClassName="active"><button>Gallery</button></NavLink></li>			
 			</ul>
 		)
 	}
-}
+} 

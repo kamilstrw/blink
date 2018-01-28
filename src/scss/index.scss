@@ -15,6 +15,7 @@ body, div
 }
 body.default
 {
+
 $backgroundColor: #262626;
 $primaryTextColor: #8e8e8e;
 $secondaryTextColor: #ff1763;
@@ -24,7 +25,7 @@ $primaryShadowColor: #000000;
 $fontRegular: "Ubuntu";
 $fontBold: "Ubuntu-Bold";
 $fontLight: "Ubuntu-Light";
-
+	height: 100%;
 	background-color: $backgroundColor;
 	color: $primaryTextColor;
 	display: flex;
@@ -125,6 +126,7 @@ $fontLight: "Ubuntu-Light";
 				width: 70%; 
 				background-color: $secondaryElementColor;
 				border-radius: 50%;
+
 				&-small
 				{
 					height: 75%;
@@ -215,6 +217,14 @@ $fontLight: "Ubuntu-Light";
 				&:before
 				{
 					display: none;
+				}
+			}
+			.active
+			{
+				button
+				{
+					background: $secondaryElementColor;
+					color: $backgroundColor;
 				}
 			}
 		}

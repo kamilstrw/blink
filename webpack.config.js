@@ -20,7 +20,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, 'assets'),
-		port: 9012,
+		port: 8222,
 		compress: true
 	},
 	module: {
@@ -68,7 +68,8 @@ module.exports = {
 			"Components": path.resolve(__dirname, "src", "js", "Components"),
 			"Pages": path.resolve(__dirname, "src", "js", "Pages"),
 			"Styles": path.resolve(__dirname, "src", "scss"),
-			"Fonts": path.resolve(__dirname, "src", "Fonts")
-		}   
+			"Fonts": path.resolve(__dirname, "src", "Fonts"),
+			"Store": path.resolve(__dirname, "src", "js", "Store")
+		}    
 	}
 }
