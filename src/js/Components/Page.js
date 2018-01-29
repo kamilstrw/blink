@@ -15,7 +15,9 @@ export default class Page extends React.Component
 					<h1>{this.state.pageTitle}</h1>
 					<Nav/>
 				</div>
-				{this.renderPage()}
+				<div className="Page-content">
+					{this.renderPage()}
+				</div>
 			</div>
 		)
 	}

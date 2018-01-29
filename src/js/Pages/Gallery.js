@@ -15,7 +15,17 @@ export default class Gallery extends Page
 
 	renderPage(){
 		return(
-		<div><Canvas/></div>
+		<div className="galleryPage">
+			<div className="Gallery-title">
+				<h3>Welcome to the gallery. Here you can draw something.</h3> 
+			</div>
+			<div>
+				<Canvas/>
+			</div>
+			<div>
+
+			</div> 
+		</div>
 		)
 	}
 }

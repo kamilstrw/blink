@@ -1,4 +1,5 @@
 import React from 'react'
+import {HuePicker} from 'react-color'
 
 export default class DrawCanvas extends React.Component
 {
@@ -9,9 +10,15 @@ export default class DrawCanvas extends React.Component
 		{
 			context: null,
 			ofsetX: 0,
-			ofsetY: 0
+			ofsetY: 0,
+			color: "fff",
+			width: 5,
+			name: null
 		}
 		this.draw = this.draw.bind(this);
+		this.handleChangeComplete = this.handleChangeComplete.bind(this);
+		this.handleTitleChange = this.handleTitleChange.bind(this);
+		this.clearContext = this.clearContext.bind(this);
 	}
 	componentDidMount()
 	{
@@ -20,22 +27,41 @@ export default class DrawCanvas extends React.Component
 		let _context = this.refs.canvas.getContext('2d');
 		this.setState({context: _context, ofsetX: node.x, ofsetY: node.y});
 	}
+	handleTitleChange()
+	{
+		console.log(event)
+		this.setState({name: event.target.value});
+	}
+	handleChangeComplete(color)
+	{
+		this.setState({color: color.hex})
+	}
 	draw(event)
 	{
-		console.log(event);
+
 		if (event.buttons === 1)
 		{
-			let x = event.clientX - this.state.ofsetX;
-			let y = event.clientY - this.state.ofsetY;
-			this.state.context.fillStyle = "black";
-			this.state.context.fillRect(x/2-2, y/2-2, 5, 5);			
+			console.log(event)
+			this.state.context.fillStyle = this.state.color;
+			this.state.context.fillRect(event.offsetX/2-this.state.width/2, event.offsetY/2-this.state.width/2, this.state.width, this.state.width);			
 		}
+	}
+	clearContext()
+	{
+		this.state.context.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
 	}
 	render()
 	{
 		return(
-			<div>
-				<canvas ref="canvas" onClick={(e)=>this.draw(e)} className="DrawCanvas"></canvas>
+			<div className="DrawWorkspace">
+				<canvas ref="canvas" onClick={this.draw} className="Canvas"></canvas>
+				<div className="palet">
+					<HuePicker color={this.state.color} onChangeComplete={ this.handleChangeComplete }/>
+					<div>
+						<button onClick={this.clearContext}><i className="fa fa-eraser" aria-hidden="true"></i></button>
+						<button><i className="fa fa-save" aria-hidden="true"></i></button>
+					</div>	
+				</div> 
 			</div>
 		)
 	}

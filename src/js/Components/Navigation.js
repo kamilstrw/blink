@@ -13,7 +13,7 @@ export default class Navigation extends React.Component
 	{
 		return(
 			<ul className="Navigation">
-				<li><NavLink to="/" activeClassName="active"><button>Home</button></NavLink></li>
+				<li><NavLink exact to="/" activeClassName="active"><button>Home</button></NavLink></li>
 				<li><NavLink to="/gallery" activeClassName="active"><button>Gallery</button></NavLink></li>			
 			</ul>
 		)

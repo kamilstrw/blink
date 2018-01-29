@@ -6,12 +6,9 @@
 * {
 margin: 0;
 padding: 0;
-}
-body, div
-{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-    box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
 }
 body.default
 {
@@ -19,7 +16,7 @@ body.default
 $backgroundColor: #262626;
 $primaryTextColor: #8e8e8e;
 $secondaryTextColor: #ff1763;
-$primaryElementColor: #8e8e8e;
+$primaryElementColor: #313131;
 $secondaryElementColor: #ff1763;
 $primaryShadowColor: #000000;
 $fontRegular: "Ubuntu";
@@ -174,12 +171,27 @@ $fontLight: "Ubuntu-Light";
 			}
 		}
 	}
-	.DrawCanvas
+	.DrawWorkspace
 	{
-		background-color: white;
-		cursor: crosshair;
 		width: 600px;
-		height: 300px;
+		height: 400px;
+		.Canvas
+		{
+			background-color: white;
+			cursor: crosshair;
+			width: 100%;
+			height: 315px;
+		}
+		.palet
+		{
+			width: 100%;
+			height: auto;
+			padding: 10px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 	.Page
 	{
@@ -195,6 +207,10 @@ $fontLight: "Ubuntu-Light";
 			border-bottom: 3px solid $secondaryElementColor;
 			padding: 0 10px;
 			font-size: 25px;
+		}
+		&-content
+		{
+			padding: 40px 20px;
 		}
 	}
 	.Navigation
@@ -229,12 +245,19 @@ $fontLight: "Ubuntu-Light";
 			}
 		}
 	}
+	.galleryPage
+	{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	button
 	{
 		position: relative;
 		background: none;
 		color: $secondaryTextColor;
 		height: 100%;
+		max-height: 40px;
 		width: auto;
 		font-family: $fontBold;
 		border-style: none;
@@ -284,5 +307,18 @@ $fontLight: "Ubuntu-Light";
 			z-index: -1;
 			-webkit-transition: top 0.09s ease-in;
 		}
+	}
+	input 
+	{
+		outline: none;
+		border: 2px solid $secondaryElementColor;
+		height: 40px;
+		border-radius: 5px;
+		padding: 5px;
+		text-transform: uppercase;
+		font-family: $fontBold;
+		color: $secondaryTextColor;
+		background-color: $backgroundColor;
+		font-size: 25px;
 	}
 }
