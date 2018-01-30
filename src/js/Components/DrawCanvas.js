@@ -61,7 +61,9 @@ export default class DrawCanvas extends React.Component
 		if (event.buttons === 1)
 		{
 			this.state.context.fillStyle = this.state.color;
-			this.state.context.fillRect(event.offsetX/2-this.state.width/2, event.offsetY/2-this.state.width/2, this.state.width, this.state.width);			
+			this.state.context.beginPath();
+			this.state.context.arc(event.offsetX/2, event.offsetY/2, this.state.width, 0, 2 * Math.PI);	
+			this.state.context.fill();		
 		}
 	}
 	clearContext()
@@ -82,6 +84,7 @@ export default class DrawCanvas extends React.Component
 	{
 		//scrap code
 		let Image = {
+			id: this.props.images.length + 1,
 			author: '',
 			title: this.refs.imageTitle.value,
 			image: this.refs.preview.src,
