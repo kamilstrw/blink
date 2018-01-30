@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCSS = new ExtractTextPlugin({filename: "plugins.css"});
 const webpack = require('webpack'); 
 const path = require('path');
 
@@ -32,7 +33,7 @@ module.exports = {
 	        	query: 
 	     		  {
 	       			presets: [ "es2017", "react"],
-	        		plugins: [ "transform-runtime", "transform-decorators-legacy", "transform-class-properties" ]
+	        		plugins: [ "transform-runtime", "transform-decorators-legacy", "transform-class-properties"]
 	     		  }
 	     	},
 			{
@@ -46,6 +47,10 @@ module.exports = {
 		            fallback: "style-loader"
 		        })
 				
+			},
+			{
+				test: /\.css?$/,
+				use: extractCSS.extract(["css-loader"])			
 			},
 		    {
 		        test: /\.(woff|woff2|eot|ttf|svg)$/,
@@ -61,7 +66,8 @@ module.exports = {
 	      template: "./src/index.html",
 	      filename: "index.html"
 	    }),
-	    extractSass
+	    extractSass,
+	    extractCSS
 	],
 	resolve: {
 		alias: {

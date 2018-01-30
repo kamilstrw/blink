@@ -1,6 +1,21 @@
 import React from 'react'
 import {HuePicker} from 'react-color'
+import Slider  from 'rc-slider'
 
+import Modal from "Components/Modal"
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+
+import * as actionsImages from 'Store/Images/actions.js'
+
+let actionsToProps = dispatch => bindActionCreators(actionsImages, dispatch);
+
+let stateToProps = state => ({
+    images: state.Images
+});
+
+@connect(stateToProps, actionsToProps)
 export default class DrawCanvas extends React.Component
 {
 	constructor()
@@ -11,44 +26,71 @@ export default class DrawCanvas extends React.Component
 			context: null,
 			ofsetX: 0,
 			ofsetY: 0,
-			color: "fff",
+			color: "white",
 			width: 5,
-			name: null
+			saving: false
 		}
 		this.draw = this.draw.bind(this);
 		this.handleChangeComplete = this.handleChangeComplete.bind(this);
-		this.handleTitleChange = this.handleTitleChange.bind(this);
 		this.clearContext = this.clearContext.bind(this);
+		this.toggleSaveModal = this.toggleSaveModal.bind(this);
+		this.preSaveImage = this.preSaveImage.bind(this);
+		this.saveImage = this.saveImage.bind(this);
+		this.changeBrushWidth = this.changeBrushWidth.bind(this);
 	}
 	componentDidMount()
 	{
 		this.refs.canvas.addEventListener('mousemove', this.draw);
 		let node = this.refs.canvas.getBoundingClientRect();
 		let _context = this.refs.canvas.getContext('2d');
+		_context.fillStyle = "white";
+		_context.fillRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
 		this.setState({context: _context, ofsetX: node.x, ofsetY: node.y});
-	}
-	handleTitleChange()
-	{
-		console.log(event)
-		this.setState({name: event.target.value});
 	}
 	handleChangeComplete(color)
 	{
 		this.setState({color: color.hex})
+	}
+	changeBrushWidth(event)
+	{
+		this.setState({width: event})
 	}
 	draw(event)
 	{
 
 		if (event.buttons === 1)
 		{
-			console.log(event)
 			this.state.context.fillStyle = this.state.color;
 			this.state.context.fillRect(event.offsetX/2-this.state.width/2, event.offsetY/2-this.state.width/2, this.state.width, this.state.width);			
 		}
 	}
 	clearContext()
 	{
-		this.state.context.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
+		this.state.context.fillStyle = "white";
+		this.state.context.fillRect(0, 0, this.refs.canvas.width, this.refs.canvas.height);
+	}
+	preSaveImage()
+	{
+		this.refs.preview.src=this.refs.canvas.toDataURL('image/jpeg');
+		this.toggleSaveModal();
+	}
+	toggleSaveModal()
+	{
+		this.setState({saving: !this.state.saving})
+	}
+	saveImage()
+	{
+		//scrap code
+		let Image = {
+			author: '',
+			title: this.refs.imageTitle.value,
+			image: this.refs.preview.src,
+			comments: [],
+			likes: 0
+		}
+		this.props.SaveImage(Image);
+		this.toggleSaveModal();
+		this.clearContext();
 	}
 	render()
 	{
@@ -57,11 +99,22 @@ export default class DrawCanvas extends React.Component
 				<canvas ref="canvas" onClick={this.draw} className="Canvas"></canvas>
 				<div className="palet">
 					<HuePicker color={this.state.color} onChangeComplete={ this.handleChangeComplete }/>
+					<Slider min={5} max={50} defaultValue={5} onChange={this.changeBrushWidth} className="brushWidth"/>
+					<div className="curentColor"  style={{backgroundColor: this.state.color, height: "32px", width: "32px"}}></div>
 					<div>
-						<button onClick={this.clearContext}><i className="fa fa-eraser" aria-hidden="true"></i></button>
-						<button><i className="fa fa-save" aria-hidden="true"></i></button>
+						<button onClick={this.clearContext} disabled={this.state.saving}><i className="fa fa-eraser" aria-hidden="true"></i></button>
+						<button onClick={this.preSaveImage} disabled={this.state.saving}><i className="fa fa-save" aria-hidden="true"></i></button>
 					</div>	
-				</div> 
+				</div>
+				<Modal active={this.state.saving} width="650px" height="400px">
+					<h3>Title for your picture</h3>
+					<input ref="imageTitle" type="text"/>
+					<img className="ImagePreview" ref="preview"/>
+					<div className="actions">
+						<button onClick={this.toggleSaveModal}>Cancel</button>
+						<button onClick={this.saveImage}><i className="fa fa-save" aria-hidden="true"></i></button>
+					</div>
+				</Modal>
 			</div>
 		)
 	}

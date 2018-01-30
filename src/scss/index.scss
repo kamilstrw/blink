@@ -1,6 +1,14 @@
 @import "./fonts.scss";
 
-
+$backgroundColor: #262626;
+$primaryTextColor: #8e8e8e;
+$secondaryTextColor: #ff1763;
+$primaryElementColor: #313131;
+$secondaryElementColor: #ff1763;
+$primaryShadowColor: #000000;
+$fontRegular: "Ubuntu";
+$fontBold: "Ubuntu-Bold";
+$fontLight: "Ubuntu-Light";
 
 
 * {
@@ -13,15 +21,7 @@ box-sizing: border-box;
 body.default
 {
 
-$backgroundColor: #262626;
-$primaryTextColor: #8e8e8e;
-$secondaryTextColor: #ff1763;
-$primaryElementColor: #313131;
-$secondaryElementColor: #ff1763;
-$primaryShadowColor: #000000;
-$fontRegular: "Ubuntu";
-$fontBold: "Ubuntu-Bold";
-$fontLight: "Ubuntu-Light";
+
 	height: 100%;
 	background-color: $backgroundColor;
 	color: $primaryTextColor;
@@ -175,6 +175,9 @@ $fontLight: "Ubuntu-Light";
 	{
 		width: 600px;
 		height: 400px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		.Canvas
 		{
 			background-color: white;
@@ -191,6 +194,40 @@ $fontLight: "Ubuntu-Light";
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
+		}
+		.brushWidth
+		{
+			flex-basis: 10%;
+			.rc-slider
+			{
+				&-rail
+				{
+					background-color: $primaryElementColor;
+				}
+				&-track
+				{
+					background-color: $secondaryElementColor;
+				}
+				&-handle
+				{
+					background-color: $backgroundColor;
+					border-color: $secondaryElementColor;
+					&:focus
+					{
+						box-shadow: 0 0 0 5px $secondaryElementColor;
+					}
+					&:active
+					{
+						box-shadow: 0 0 0 1px $secondaryElementColor;
+					}
+				}
+			}
+		}
+		.ImagePreview
+		{
+			height: 157.5px;
+			width: 300px;
+			border: 2px solid $secondaryElementColor;
 		}
 	}
 	.Page
@@ -271,6 +308,11 @@ $fontLight: "Ubuntu-Light";
 		-ms-transition:     0.08s ease-in;
 		-moz-transition:    0.08s ease-in;
 		-webkit-transition: 0.08s ease-in;
+		&:disabled
+		{
+			opacity: 0.5;
+			pointer-events: none;
+		}
 		&:hover
 		{
 			color: $backgroundColor;
@@ -320,5 +362,36 @@ $fontLight: "Ubuntu-Light";
 		color: $secondaryTextColor;
 		background-color: $backgroundColor;
 		font-size: 25px;
+	}
+	.dialogWindow
+	{
+		position: fixed;
+		background: $backgroundColor;
+		border: 2px solid $secondaryElementColor;
+		border-radius: 10px;
+		padding: 20px;
+		top: 100vh;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+		transition:         0.3s ease-in;
+		-o-transition:      0.3s ease-in;
+		-ms-transition:     0.3s ease-in;
+		-moz-transition:    0.3s ease-in;
+		-webkit-transition: 0.3s ease-in;
+		
+		&.active
+		{
+			top: 30vh;
+		}
+		.actions
+		{
+			justify-content: space-evenly;
+   			display: flex;
+    		flex-direction: row;
+    		width: 100%;
+		}
+			
 	}
 }
