@@ -1,6 +1,8 @@
 import React from 'react'
 import Nav from "Components/Navigation"
 
+
+
 export default class Page extends React.Component
 {
 	constructor()

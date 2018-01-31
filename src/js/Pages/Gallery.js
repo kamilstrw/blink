@@ -1,6 +1,8 @@
 import React from 'react'
 import Page from 'Components/Page'
 import Canvas from 'Components/DrawCanvas'
+import Album from 'Components/Album'
+
 
 export default class Gallery extends Page
 {
@@ -23,7 +25,6 @@ export default class Gallery extends Page
 				<Canvas/>
 			</div>
 			<div>
-
 			</div> 
 		</div>
 		)

@@ -21,7 +21,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, 'assets'),
-		port: 3000,
+		port: 4100,
 		compress: true
 	},
 	module: {
@@ -33,7 +33,7 @@ module.exports = {
 	        	query: 
 	     		  {
 	       			presets: [ "es2017", "react"],
-	        		plugins: [ "transform-runtime", "transform-decorators-legacy", "transform-class-properties"]
+	        		plugins: [ "transform-runtime", "transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"]
 	     		  }
 	     	},
 			{

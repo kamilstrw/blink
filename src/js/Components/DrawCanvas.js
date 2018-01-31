@@ -4,18 +4,6 @@ import Slider  from 'rc-slider'
 
 import Modal from "Components/Modal"
 
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-
-import * as actionsImages from 'Store/Images/actions.js'
-
-let actionsToProps = dispatch => bindActionCreators(actionsImages, dispatch);
-
-let stateToProps = state => ({
-    images: state.Images
-});
-
-@connect(stateToProps, actionsToProps)
 export default class DrawCanvas extends React.Component
 {
 	constructor()
