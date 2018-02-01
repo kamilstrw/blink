@@ -21,7 +21,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, 'assets'),
-		port: 4100,
+		port: 9000,
 		compress: true
 	},
 	module: {
@@ -32,7 +32,7 @@ module.exports = {
 	        	exclude: /node_modules/,
 	        	query: 
 	     		  {
-	       			presets: [ "es2017", "react"],
+	       			presets: [ "es2017", "stage-0", "react"],
 	        		plugins: [ "transform-runtime", "transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"]
 	     		  }
 	     	},

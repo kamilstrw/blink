@@ -9,12 +9,10 @@ import Pages from 'Pages'
 	render()
 	{
 	 return (
-		<main>
 	     <Switch>
 	      <Route exact path='/' component={Pages.Home}/>
 	      <Route path='/gallery' component={Pages.Gallery}/>
 	     </Switch>
-		</main>
 		)
 	}
 }

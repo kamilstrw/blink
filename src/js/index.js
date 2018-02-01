@@ -9,7 +9,6 @@ import Store from "Store"
 import style from "Styles/index.scss"
 import 'rc-slider/assets/index.css';
 
-
 import App from './App'
 
 ReactDOM.render((
