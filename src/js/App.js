@@ -1,15 +1,15 @@
 import React from 'react';
 import Header from "Components/Head";
 import Main from "Components/Main";
-import { Switch, Route} from 'react-router-dom';
+import Auth from "Components/CheckAuth";
 
 const App = () =>
 (
 	<div>
 		<Header/>
-		<Switch>
+		<Auth>
 			<Main/>
-		</Switch>
+		</Auth>
 	</div>
 );
 export default App;

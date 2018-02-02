@@ -75,7 +75,8 @@ module.exports = {
 			"Pages": path.resolve(__dirname, "src", "js", "Pages"),
 			"Styles": path.resolve(__dirname, "src", "scss"),
 			"Fonts": path.resolve(__dirname, "src", "Fonts"),
-			"Store": path.resolve(__dirname, "src", "js", "Store")
+			"Store": path.resolve(__dirname, "src", "js", "Store"),
+			"Classes": path.resolve(__dirname, "src", "js", "Classes")
 		}    
 	}
 }

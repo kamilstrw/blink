@@ -1,6 +1,7 @@
 import TYPE from './type'
+import User from "Classes/User"
 
-export default function(state = {}, action)
+export default function(state = new User(), action)
 {
 	switch (action.type)
 	{

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Login from 'Pages/Login'
+import {Redirect} from 'react-router'
 
 let stateToProps = (state) => 
 {
@@ -18,7 +19,7 @@ export default class CheckAuth extends React.Component
 	render()
 	{
 		return(
-			<div>{this.props.user ? this.props.children : }</div>
+			<div>{this.props.user.name ? '' : ''}</div>
 		)
 	}
 }
