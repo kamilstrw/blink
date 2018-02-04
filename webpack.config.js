@@ -21,7 +21,7 @@ module.exports = {
 	devServer:
 	{
 		contentBase: path.join(__dirname, 'assets'),
-		port: 9000,
+		port: 9012,
 		compress: true
 	},
 	module: {
@@ -58,6 +58,18 @@ module.exports = {
 			    use: {
 			        loader: 'url-loader?limit=10000&name=/fonts/[name].[ext]'
 			      }
+		    },
+		    {
+		        test: /\.png$/,
+		        use: 'url-loader?name=images/[name].[ext]&limit=8192&mimetype=image/png'
+		    },
+		    {
+		        test: /\.jpe?g$/,
+		        use: 'url-loader?name=images/[name].[ext]&limit=8192&mimetype=image/jpg'
+		    },
+		    {
+		        test: /\.gif$/,
+		        use: 'url-loader?limit=8192&mimetype=image/gif'
 		    }
 		]
 	},
@@ -76,7 +88,8 @@ module.exports = {
 			"Styles": path.resolve(__dirname, "src", "scss"),
 			"Fonts": path.resolve(__dirname, "src", "Fonts"),
 			"Store": path.resolve(__dirname, "src", "js", "Store"),
-			"Classes": path.resolve(__dirname, "src", "js", "Classes")
+			"Classes": path.resolve(__dirname, "src", "js", "Classes"),
+			"Images": path.resolve(__dirname, "src", "Images")
 		}    
 	}
 }

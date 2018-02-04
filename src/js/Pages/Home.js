@@ -15,7 +15,7 @@ export default class Home extends Page
 	renderPage()
 	{
 		return(
-			<div>sdfsaddsada</div>
+			<div></div>
 		)
 	}
 }

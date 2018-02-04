@@ -10,5 +10,9 @@ export default class User
 		this.images = [];
 	}
 
+	set(key, value)
+	{
+		this[key] = value;
+	}
 
 }

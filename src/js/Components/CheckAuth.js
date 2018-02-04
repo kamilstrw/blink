@@ -19,7 +19,7 @@ export default class CheckAuth extends React.Component
 	render()
 	{
 		return(
-			<div>{this.props.user.name ? '' : ''}</div>
+			<div>{this.props.user.name ? this.props.children : <Login/>}</div>
 		)
 	}
 }

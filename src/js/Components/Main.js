@@ -10,7 +10,7 @@ import Pages from 'Pages'
 	{
 	 return (
 	     <Switch>
-	      <Route exact path='/home' component={Pages.Home}/>
+	      <Route exact path='/' component={Pages.Home}/>
 	      <Route path='/gallery' component={Pages.Gallery}/>
 	     </Switch>
 		)
